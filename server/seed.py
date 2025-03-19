@@ -7,7 +7,7 @@ from models import db, User, Recipe, Tag
 
 fake = Faker()
 
-if _name_ == '_main_':
+if __name__ == '__main__':
     with app.app_context():
         print("Starting seed...")
 

@@ -17,7 +17,7 @@ recipe_tag = db.Table(
 )
 
 class User(db.Model, SerializerMixin):
-    _tablename_ = 'users'
+    __tablename__ = 'users'
 
     id = db.Column(db.Integer, primary_key=True)
     username = db.Column(db.String(80), unique=True, nullable=False)
@@ -28,7 +28,7 @@ class User(db.Model, SerializerMixin):
     serialize_rules = ('-recipes.user',)
 
 class Recipe(db.Model, SerializerMixin):
-    _tablename_ = 'recipes'
+    __tablename__ = 'recipes'
 
     id = db.Column(db.Integer, primary_key=True)
     title = db.Column(db.String(100), nullable=False)
@@ -42,7 +42,7 @@ class Recipe(db.Model, SerializerMixin):
     serialize_rules = ('-user.recipes', '-tags.recipes')
 
 class Tag(db.Model, SerializerMixin):
-    _tablename_ = 'tags'
+    __tablename__ = 'tags'
 
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(50), unique=True, nullable=False)
